@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= recipe.name %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1><%= recipe.name %></h1>
+        <ul class="ingredients">
+            <% recipe.ingredients.forEach(ingredient => { %>
+                <li><%= ingredient %></li>
+            <% }); %>
+        </ul>
+
+        <a class="back-link" href="/">Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1><%= title %></h1>
+        <ul>
+            <% recipes.forEach(recipe => { %>
+                <li class="recipe-card"><a href="/recipe/<%=recipe.name%>"><%= recipe.name %></a>
+                    <% if (recipe.isFavourite) { %> 
+                        <span class="favorite">Favorite</span>
+                    <% } %>
+                    </li> 
+            <% }); %>
+        </ul>
+    </div>
+</body>
+<script src="../src/home.js"></script>
+</html>
