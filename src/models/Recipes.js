@@ -1,6 +1,20 @@
-const recipes = [
-    { id: 1, name: 'Spaghetti Bolognese', ingredients: ['spaghetti', 'ground beef', 'tomato sauce'], isFavourite: true },
-    { id: 2, name: 'Chicken Curry', ingredients: ['chicken', 'curry powder', 'coconut milk'], isFavourite: false },
-    { id: 3, name: 'Vegetable Stir Fry', ingredients: ['mixed vegetables', 'soy sauce', 'ginger'], isFavourite: false },
-];
-module.exports = recipes;
+const mongoose = require('mongoose');
+
+const recipeSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    description: String,
+    ingredients: [String],
+    instructions: [String],
+    prepTime: Number,
+    cookTime: Number,
+    image: String,
+    isFavourite: {
+        type: Boolean,
+        default: false
+    }
+})
+
+module.exports = mongoose.model('Recipe', recipeSchema);
