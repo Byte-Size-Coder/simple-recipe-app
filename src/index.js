@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const recipeRoute = require('./routes/recipeRoutes');
+const recipeApiRoute = require('./routes/recipeApiRoutes');
+const recipePageRoute = require('./routes/recipePageRoutes');
 
 const app = express();
 
@@ -17,6 +18,8 @@ mongoose.connect(dbURI)
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+app.use(express.json());
 
 app.use(express.static('views/public'))
 
@@ -49,7 +52,8 @@ app.get('/seed', async (req, res) => {
     res.send('Database seeded!');
 })
 
-app.use('/', recipeRoute);
+app.use(recipeApiRoute);
+app.use(recipePageRoute);
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
