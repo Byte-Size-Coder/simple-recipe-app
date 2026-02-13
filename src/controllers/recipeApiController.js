@@ -3,7 +3,6 @@ const Recipe = require('../models/Recipes');
 // C -> CREATE operation
 exports.createRecipe = async (req, res) => {
     try {
-        console.log(req.body);
         const recipe = await Recipe.create(req.body);
         res.status(201).json(recipe);
     } catch (error) {
@@ -15,7 +14,7 @@ exports.createRecipe = async (req, res) => {
 exports.getAllRecipes = async (req, res) => {
     try {
         const recipes = await Recipe.find();
-        res.json(recipes);
+        res.status(200).json(recipes);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

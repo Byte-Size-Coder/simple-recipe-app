@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start-dev": "cd src && npx nodemon index.js"
   },
   "repository": {
@@ -24,6 +24,9 @@
     "mongoose": "^9.1.6"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "chai": "^6.2.2",
+    "mocha": "^11.7.5",
+    "nodemon": "^3.1.11",
+    "sinon": "^21.0.1"
   }
 }
